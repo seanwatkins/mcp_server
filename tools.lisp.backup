@@ -1,0 +1,2500 @@
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
+
+(DEFINE-TOOL SERVER_INFO
+    "Returns basic info about the MCP server: uptime, tool count, hostname."
+    (JOBJ "type" "object" "properties" (JOBJ) "required" (LIST))
+  (LET ((UPTIME (- (GET-UNIVERSAL-TIME) *START-TIME*)))
+    (VALUES
+     (FORMAT NIL "Uptime: ~A~%Tools: ~A~%Host: ~A" (FORMAT-UPTIME UPTIME)
+             (HASH-TABLE-COUNT *TOOL-REGISTRY*)
+             (UIOP/RUN-PROGRAM:RUN-PROGRAM "hostname" :OUTPUT :STRING))
+     NIL)))
+
+(DEFINE-TOOL REVERSE_STRING
+    "Reverses a string and returns it."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "input"
+                (JOBJ "type" "string" "description" "The string to reverse"))
+          "required" (LIST "input"))
+  (LET ((INPUT (GETHASH "input" ARGS)))
+    (UNLESS INPUT (RETURN-FROM NIL (VALUES "ERROR: missing input" T)))
+    (VALUES (REVERSE INPUT) NIL)))
