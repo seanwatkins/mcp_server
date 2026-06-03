@@ -38,7 +38,7 @@
 (let ((ql-init (merge-pathnames "quicklisp/setup.lisp" (user-homedir-pathname))))
   (when (probe-file ql-init) (load ql-init)))
 
-(ql:quickload '(:hunchentoot :yason :ironclad :cl-base64 :cl-ppcre :uiop
+(ql:quickload '(:hunchentoot :yason :ironclad :cl-base64 :cl-ppcre :uiop :dexador
                 :bordeaux-threads :usocket) :silent t)
 
 ;;; --- 2. Configuration --------------------------------------------------------
