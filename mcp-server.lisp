@@ -1,3 +1,6 @@
+;;;; SPDX-License-Identifier: GPL-3.0-or-later
+;;;; Copyright (C) 2026 Sean Watkins <sean.watkins@gmail.com>
+;;;;
 ;;;; mcp-server.lisp
 ;;;;
 ;;;; MCP (Model Context Protocol) filesystem server for Claude.ai web.

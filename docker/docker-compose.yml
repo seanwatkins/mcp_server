@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  mcp:
+    build:
+      context: ..          # build context is the mcp-server/ parent
+      dockerfile: docker/Dockerfile
+    image: octopusbaby:latest
+    container_name: octopusBaby
+    restart: unless-stopped
+    ports:
+      - "8765:8765"
+    environment:
+      MCP_SERVER_URL: ${MCP_SERVER_URL:-http://localhost:8765}
+      MCP_PORT: 8765
+      TUNNEL_TOKEN: ${TUNNEL_TOKEN:-}
+      GRAFANA_URL: ${GRAFANA_URL:-}
+      GRAFANA_USER: ${GRAFANA_USER:-}
+      GRAFANA_PASS: ${GRAFANA_PASS:-}
+    volumes:
+      - ./data:/app/data   # tools.lisp and logs persist here
