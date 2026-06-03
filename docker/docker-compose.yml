@@ -17,5 +17,9 @@ services:
       GRAFANA_URL: ${GRAFANA_URL:-}
       GRAFANA_USER: ${GRAFANA_USER:-}
       GRAFANA_PASS: ${GRAFANA_PASS:-}
+      MQTT_HOST: ${MQTT_HOST:-127.0.0.1}
+      MQTT_PORT: ${MQTT_PORT:-1883}
+      MQTT_TOPIC: ${MQTT_TOPIC:-mcp-server/log}
+      MQTT_STATUS_TOPIC: ${MQTT_STATUS_TOPIC:-mcp-server/status}
     volumes:
       - ./data:/app/data   # tools.lisp and logs persist here
