@@ -559,7 +559,7 @@
 
 ;;; --- 11. HTTP handlers -------------------------------------------------------
 (defun set-cors ()
-  (setf (hunchentoot:header-out "Access-Control-Allow-Origin")  "https://claude.ai")
+  (setf (hunchentoot:header-out "Access-Control-Allow-Origin")  "*")
   (setf (hunchentoot:header-out "Access-Control-Allow-Headers")
         "Content-Type, Authorization, Mcp-Session-Id")
   (setf (hunchentoot:header-out "Access-Control-Allow-Methods") "GET, POST, OPTIONS"))
@@ -568,6 +568,25 @@
   (let ((h (hunchentoot:header-in* "authorization")))
     (when (and h (> (length h) 7) (string= "Bearer " (subseq h 0 7)))
       (subseq h 7))))
+
+(hunchentoot:define-easy-handler (handle-root :uri "/") ()
+  (set-cors)
+  (setf (hunchentoot:content-type*) "application/json")
+  (when (eq (hunchentoot:request-method*) :options)
+    (setf (hunchentoot:return-code*) 204)
+    (return-from handle-root ""))
+  (unless (valid-token-p (auth-bearer))
+    (setf (hunchentoot:return-code*) 401)
+    (return-from handle-root (json-encode (jobj "error" "unauthorized"))))
+  (let* ((raw  (hunchentoot:raw-post-data :force-text t))
+         (body (when (and raw (not (string= (string-trim " " raw) "")))
+                 (json-parse raw))))
+    (unless body
+      (setf (hunchentoot:return-code*) 400)
+      (return-from handle-root (json-encode (jobj "error" "invalid JSON"))))
+    (if (listp body)
+        (json-encode (remove nil (mapcar #'dispatch body)))
+        (or (dispatch body) ""))))
 
 (hunchentoot:define-easy-handler (handle-mcp :uri *mcp-endpoint*) ()
   (set-cors)
@@ -590,6 +609,7 @@
 
 (hunchentoot:define-easy-handler
     (handle-oauth-discovery :uri "/.well-known/oauth-authorization-server") ()
+  (set-cors)
   (setf (hunchentoot:content-type*) "application/json")
   (json-encode
    (jobj "issuer"                                *server-url*
@@ -600,6 +620,16 @@
          "grant_types_supported"                 (list "authorization_code")
          "code_challenge_methods_supported"      (list "S256")
          "token_endpoint_auth_methods_supported" (list "none"))))
+
+(hunchentoot:define-easy-handler
+    (handle-resource-meta :uri "/.well-known/oauth-protected-resource") ()
+  (set-cors)
+  (setf (hunchentoot:content-type*) "application/json")
+  (json-encode
+   (jobj "resource"                  *server-url*
+         "authorization_servers"    (list *server-url*)
+         "bearer_methods_supported" (list "header")
+         "mcp_endpoint"             (format nil "~A~A" *server-url* *mcp-endpoint*))))
 
 (hunchentoot:define-easy-handler (handle-register :uri "/register") ()
   (set-cors)
