@@ -17,6 +17,7 @@ services:
       GRAFANA_URL: ${GRAFANA_URL:-}
       GRAFANA_USER: ${GRAFANA_USER:-}
       GRAFANA_PASS: ${GRAFANA_PASS:-}
+      TOOLS_SAVE_FILE: ${TOOLS_SAVE_FILE:-/app/data/saved-tools.lisp}
       MQTT_HOST: ${MQTT_HOST:-127.0.0.1}
       MQTT_PORT: ${MQTT_PORT:-1883}
       MQTT_TOPIC: ${MQTT_TOPIC:-mcp-server/log}

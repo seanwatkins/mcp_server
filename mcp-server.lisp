@@ -403,9 +403,17 @@
       "/share/projects/mcp-server/tools.lisp")
   "File where user-defined tools are persisted. Loaded at startup after built-ins.")
 
+(defparameter *tools-save-file*
+  (or (uiop:getenv "TOOLS_SAVE_FILE") nil)
+  "File where :disk-persisted tools are saved. Nil means disk persistence is disabled.
+   Set TOOLS_SAVE_FILE env var to enable (e.g. /app/data/saved-tools.lisp).")
+
 (defvar *loading-tools* nil
   "Bound to T while tools.lisp is being loaded. Suppresses persist-tool-form
    so that loading the file does not re-append every form to it.")
+
+(defvar *loading-saved-tools* nil
+  "Bound to T while saved-tools file is being loaded.")
 
 (defun register-tool (name description input-schema handler-fn)
   "Register NAME in *tool-registry*. Does not persist -- use define-tool for that."
@@ -414,10 +422,10 @@
   (log-message "[TOOL] Registered: ~A" name)
   name)
 
-(defun persist-tool-form (form)
-  "Append FORM as readable Lisp to *tools-file*."
+(defun persist-tool-form (form target-file)
+  "Append FORM as readable Lisp to TARGET-FILE."
   (handler-case
-      (with-open-file (out *tools-file*
+      (with-open-file (out target-file
                            :direction :output
                            :if-exists :append
                            :if-does-not-exist :create)
@@ -425,27 +433,49 @@
         (write form :stream out :pretty t :readably t)
         (terpri out))
     (error (e)
-      (log-message "[TOOL] WARNING: could not persist to ~A: ~A" *tools-file* e))))
+      (log-message "[TOOL] WARNING: could not persist to ~A: ~A" target-file e))))
 
 (defmacro define-tool (name description input-schema &body handler-body)
-  "Register a tool and persist it to *tools-file* so it survives restarts.
+  "Register a tool, optionally persisting it to disk.
    NAME         -- unquoted symbol, becomes the MCP tool name string (lowercased)
    DESCRIPTION  -- string shown to Claude
    INPUT-SCHEMA -- form evaluating to a jobj
    HANDLER-BODY -- body of (lambda (args) ...) where ARGS is the arguments hash-table
 
-   When called during load-tools-file (*loading-tools* is T), the tool is
+   The first form of HANDLER-BODY may be a keyword :persist followed by
+   :memory (default) or :disk.  :disk saves to *tools-save-file* so the
+   tool survives restarts; :memory keeps it in RAM only.
+
+   When called during load-tools-file or load-saved-tools-file the tool is
    registered but NOT re-appended to the file."
-  (let ((name-str (string-downcase (symbol-name name)))
-        (form     `(define-tool ,name ,description ,input-schema ,@handler-body)))
+  ;; Extract optional (:persist :memory/:disk) from the start of handler-body
+  (let* ((persist-mode (if (and (>= (length handler-body) 2)
+                                (eq (first handler-body) :persist))
+                           (second handler-body)
+                           :memory))
+         (real-body    (if (and (>= (length handler-body) 2)
+                                (eq (first handler-body) :persist))
+                           (cddr handler-body)
+                           handler-body))
+         (name-str     (string-downcase (symbol-name name)))
+         (form         `(define-tool ,name ,description ,input-schema
+                          :persist ,persist-mode
+                          ,@real-body)))
     `(progn
        (register-tool ,name-str
                       ,description
                       ,input-schema
-                      (lambda (args) (declare (ignorable args)) ,@handler-body))
-       (unless *loading-tools*
-         (persist-tool-form ',form)
-         (log-message "[TOOL] Persisted: ~A -> ~A" ,name-str *tools-file*))
+                      (lambda (args) (declare (ignorable args)) ,@real-body))
+       (unless (or *loading-tools* *loading-saved-tools*)
+         (cond
+           ((eq ,persist-mode :disk)
+            (if *tools-save-file*
+                (progn
+                  (persist-tool-form ',form *tools-save-file*)
+                  (log-message "[TOOL] Persisted (disk): ~A -> ~A" ,name-str *tools-save-file*))
+                (log-message "[TOOL] WARNING: :disk requested for ~A but TOOLS_SAVE_FILE not set -- saving to memory only" ,name-str)))
+           (t
+            (log-message "[TOOL] Registered (memory): ~A" ,name-str))))
        ,name-str)))
 
 (defun tools-list ()
@@ -473,6 +503,20 @@
           (log-message "[TOOL] ERROR loading ~A: ~A" *tools-file* e)))
       (log-message "[TOOL] No tools.lisp at ~A (created on first define-tool)"
                    *tools-file*)))
+
+(defun load-saved-tools-file ()
+  "Load *tools-save-file* if set and exists, registering any define-tool forms.
+   Binds *loading-saved-tools* to T so define-tool does not re-append each form."
+  (if *tools-save-file*
+      (if (probe-file *tools-save-file*)
+          (handler-case
+              (let ((*loading-saved-tools* t))
+                (load *tools-save-file*)
+                (log-message "[TOOL] Loaded saved tools from ~A" *tools-save-file*))
+            (error (e)
+              (log-message "[TOOL] ERROR loading saved tools ~A: ~A" *tools-save-file* e)))
+          (log-message "[TOOL] No saved tools file at ~A (will create on first :disk save)" *tools-save-file*))
+      (log-message "[TOOL] TOOLS_SAVE_FILE not set -- disk persistence disabled")))
 
 ;;; Register built-in tools (always present, never written to tools.lisp)
 (register-tool
@@ -716,7 +760,9 @@ code{background:#f3f4f6;padding:2px 6px;border-radius:3px}</style></head>
   (log-message "  Port       : ~A" *port*)
   (log-message "  URL        : ~A" *server-url*)
   (log-message "  Tools file : ~A" *tools-file*)
+  (log-message "  Save file  : ~A" (or *tools-save-file* "not set (disk persistence disabled)"))
   (load-tools-file)
+  (load-saved-tools-file)
   (log-message "  Tools      : ~A registered" (hash-table-count *tool-registry*))
   (let ((acceptor (make-instance 'mcp-acceptor
                                  :port *port*
