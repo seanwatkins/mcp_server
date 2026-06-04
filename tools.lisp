@@ -47,3 +47,15 @@
                              (t (error "Unknown method ~A" method)))))
             (values resp nil))
         (error (e) (values (format nil "ERROR: ~A" e) t))))))
+
+(DEFINE-TOOL PIG_LATIN
+    "Converts an English text string into Pig Latin. Each word is transformed: words starting with a vowel get 'yay' appended; words starting with consonants move leading consonants to the end and add 'ay'."
+    (JOBJ "type" "object" "properties"
+          (JOBJ "text"
+                (JOBJ "type" "string" "description"
+                      "The English text to convert to Pig Latin"))
+          "required" (LIST "text"))
+  (LET ((TEXT (GETHASH "text" ARGS)))
+    (IF TEXT
+        (VALUES (PIG-LATIN-SENTENCE TEXT) NIL)
+        (VALUES "ERROR: missing text" T))))
