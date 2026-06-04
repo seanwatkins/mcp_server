@@ -19,37 +19,31 @@
         (values (reverse input) nil)
         (values "ERROR: missing input" t))))
 
-(DEFINE-TOOL GRAFANA
+(define-tool grafana
     "Make a Grafana REST API call. method=GET/POST/PUT/DELETE, path=/api/..., body=JSON string (optional)."
-    (JOBJ "type" "object" "properties"
-          (JOBJ "method"
-                (JOBJ "type" "string" "description"
-                      "HTTP method: GET POST PUT DELETE")
-                "path"
-                (JOBJ "type" "string" "description"
-                      "API path e.g. /api/dashboards/uid/xxx")
-                "body"
-                (JOBJ "type" "string" "description"
-                      "JSON body (for POST/PUT)"))
-          "required" (LIST "method" "path"))
-  (LET ((METHOD (STRING-UPCASE (OR (GETHASH "method" ARGS) "GET")))
-        (PATH (GETHASH "path" ARGS))
-        (BODY (GETHASH "body" ARGS)))
-    (UNLESS (AND (BOUNDP '*GRAFANA-URL*) *GRAFANA-URL*)
-      (RETURN-FROM NIL (VALUES "ERROR: *grafana-url* not set" T)))
-    (HANDLER-CASE
-     (LET* ((URL (FORMAT NIL "~A~A" *GRAFANA-URL* PATH))
-            (HDRS
-             `(("Authorization" . ,(GRAFANA-AUTH))
-               ("Content-Type" . "application/json")))
-            (RESP
-             (COND ((STRING= METHOD "GET") (DEXADOR:GET URL :HEADERS HDRS))
-                   ((STRING= METHOD "POST")
-                    (DEXADOR:POST URL :HEADERS HDRS :CONTENT (OR BODY "{}")))
-                   ((STRING= METHOD "PUT")
-                    (DEXADOR:PUT URL :HEADERS HDRS :CONTENT (OR BODY "{}")))
-                   ((STRING= METHOD "DELETE")
-                    (DEXADOR:DELETE URL :HEADERS HDRS))
-                   (T (ERROR "Unknown method ~A" METHOD)))))
-       (VALUES RESP NIL))
-     (ERROR (E) (VALUES (FORMAT NIL "ERROR: ~A" E) T)))))
+    (jobj "type" "object" "properties"
+          (jobj "method" (jobj "type" "string" "description" "HTTP method: GET POST PUT DELETE")
+                "path"   (jobj "type" "string" "description" "API path e.g. /api/dashboards/uid/xxx")
+                "body"   (jobj "type" "string" "description" "JSON body (for POST/PUT)"))
+          "required" (list "method" "path"))
+  (let ((grafana-url  (uiop:getenv "GRAFANA_URL"))
+        (grafana-user (or (uiop:getenv "GRAFANA_USER") "admin"))
+        (grafana-pass (or (uiop:getenv "GRAFANA_PASS") "")))
+    (unless grafana-url
+      (return-from grafana (values "ERROR: GRAFANA_URL env var not set" t)))
+    (let ((method (string-upcase (or (gethash "method" args) "GET")))
+          (path   (gethash "path" args))
+          (body   (gethash "body" args)))
+      (handler-case
+          (let* ((url  (format nil "~A~A" grafana-url path))
+                 (auth (cl-base64:string-to-base64-string
+                        (format nil "~A:~A" grafana-user grafana-pass)))
+                 (hdrs (list (cons "Authorization" (format nil "Basic ~A" auth))
+                             (cons "Content-Type" "application/json")))
+                 (resp (cond ((string= method "GET")    (dexador:get    url :headers hdrs))
+                             ((string= method "POST")   (dexador:post   url :headers hdrs :content (or body "{}")))
+                             ((string= method "PUT")    (dexador:put    url :headers hdrs :content (or body "{}")))
+                             ((string= method "DELETE") (dexador:delete url :headers hdrs))
+                             (t (error "Unknown method ~A" method)))))
+            (values resp nil))
+        (error (e) (values (format nil "ERROR: ~A" e) t))))))
