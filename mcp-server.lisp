@@ -533,6 +533,11 @@
   (let ((method (gethash "method" req))
         (id     (gethash "id" req))
         (params (or (gethash "params" req) (make-hash-table :test #'equal))))
+    (unless (and (null id) (uiop:string-prefix-p "notifications/" (or method "")))
+      (log-message "[REQUEST] ~A~A" (or method "?")
+                   (if (string= (or method "") "tools/call")
+                       (format nil " -> ~A" (gethash "name" params))
+                       "")))
     (cond
       ((string= method "initialize")
        (mcp-ok id (jobj "protocolVersion" "2024-11-05"
