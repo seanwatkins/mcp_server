@@ -48,6 +48,24 @@
             (values resp nil))
         (error (e) (values (format nil "ERROR: ~A" e) t))))))
 
+
+(defun to-pig-latin (word)
+  (let* ((w (string-downcase word))
+         (vowels aeiou)
+         (starts-vowel (find (char w 0) vowels)))
+    (if starts-vowel
+        (concatenate 'string w yay)
+        (let ((i (loop for i from 0 below (length w)
+                       when (find (char w i) vowels)
+                       return i)))
+          (if i
+              (concatenate 'string (subseq w i) (subseq w 0 i) ay)
+              (concatenate 'string w ay))))))
+
+(defun pig-latin-sentence (text)
+  (let ((words (uiop:split-string text :separator " ")))
+    (format nil "~{~A~^ ~}" (mapcar #'to-pig-latin words))))
+
 (DEFINE-TOOL PIG_LATIN
     "Converts an English text string into Pig Latin. Each word is transformed: words starting with a vowel get 'yay' appended; words starting with consonants move leading consonants to the end and add 'ay'."
     (JOBJ "type" "object" "properties"
@@ -59,3 +77,6 @@
     (IF TEXT
         (VALUES (PIG-LATIN-SENTENCE TEXT) NIL)
         (VALUES "ERROR: missing text" T))))
+
+;; Helper functions must come before the tool definition - patch them in here
+;; (define-tool pig_latin above calls these)
