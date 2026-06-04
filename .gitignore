@@ -1,0 +1,17 @@
+# Environment files - contain secrets, never commit
+.env
+*.env
+.env.*
+!.env.example
+
+# Docker data volume - persistent runtime data, not source
+docker/data/
+
+# Backup files
+*.backup
+*.bak
+
+# Editor/OS noise
+.DS_Store
+*~
+*.swp
