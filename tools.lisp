@@ -81,33 +81,40 @@
 ;; Helper functions must come before the tool definition - patch them in here
 ;; (define-tool pig_latin above calls these)
 
+
 ;;; --- Home Assistant LED Tools -------------------------------------------
 
 (define-tool LED_ON
   "Turn on the Home Assistant LED light (light.testmcu_my_udp_led)."
   (jobj "type" "object" "properties" (jobj) "required" (list))
-  (handler-case
-      (progn
-        (dexador:post
-         "http://10.0.69.190:8123/api/services/light/turn_on"
-         :headers (list (cons "Authorization" "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJmMGVjZjZkY2QzMDA0ZDg2OWExMWJkNDQ2NDZmNGY0YiIsImlhdCI6MTc4MDU5MzAxMCwiZXhwIjoyMDk1OTUzMDEwfQ.zEO_32QTAQv_vjvslyb6RO8BhLu8Bhw2u1ZG2BSXHt4")
-                        (cons "Content-Type" "application/json"))
-         :content "{\"entity_id\": \"light.testmcu_my_udp_led\"}")
-        (values "LED is ON" nil))
-    (error (e) (values (format nil "ERROR: ~A" e) t))))
+  (let ((ha-url (or (uiop:getenv "HA_URL") "http://10.0.69.190:8123"))
+        (token  (uiop:getenv "HA_TOKEN")))
+    (unless token (return-from led_on (values "ERROR: HA_TOKEN env var not set" t)))
+    (handler-case
+        (progn
+          (dexador:post
+           (format nil "~a/api/services/light/turn_on" ha-url)
+           :headers (list (cons "Authorization" (format nil "Bearer ~a" token))
+                          (cons "Content-Type" "application/json"))
+           :content "{\"entity_id\": \"light.testmcu_my_udp_led\"}")
+          (values "LED is ON" nil))
+      (error (e) (values (format nil "ERROR: ~A" e) t)))))
 
 (define-tool LED_OFF
   "Turn off the Home Assistant LED light (light.testmcu_my_udp_led)."
   (jobj "type" "object" "properties" (jobj) "required" (list))
-  (handler-case
-      (progn
-        (dexador:post
-         "http://10.0.69.190:8123/api/services/light/turn_off"
-         :headers (list (cons "Authorization" "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJmMGVjZjZkY2QzMDA0ZDg2OWExMWJkNDQ2NDZmNGY0YiIsImlhdCI6MTc4MDU5MzAxMCwiZXhwIjoyMDk1OTUzMDEwfQ.zEO_32QTAQv_vjvslyb6RO8BhLu8Bhw2u1ZG2BSXHt4")
-                        (cons "Content-Type" "application/json"))
-         :content "{\"entity_id\": \"light.testmcu_my_udp_led\"}")
-        (values "LED is OFF" nil))
-    (error (e) (values (format nil "ERROR: ~A" e) t))))
+  (let ((ha-url (or (uiop:getenv "HA_URL") "http://10.0.69.190:8123"))
+        (token  (uiop:getenv "HA_TOKEN")))
+    (unless token (return-from led_off (values "ERROR: HA_TOKEN env var not set" t)))
+    (handler-case
+        (progn
+          (dexador:post
+           (format nil "~a/api/services/light/turn_off" ha-url)
+           :headers (list (cons "Authorization" (format nil "Bearer ~a" token))
+                          (cons "Content-Type" "application/json"))
+           :content "{\"entity_id\": \"light.testmcu_my_udp_led\"}")
+          (values "LED is OFF" nil))
+      (error (e) (values (format nil "ERROR: ~A" e) t)))))
 
 (define-tool LED_MORSE
   "Flash a message in Morse code via the Home Assistant LED. Pass a 'text' string to transmit."
@@ -115,9 +122,9 @@
         "properties" (jobj "text" (jobj "type" "string"
                                         "description" "Text to transmit in Morse code via LED flashes"))
         "required" (list "text"))
-  (let* ((token "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJmMGVjZjZkY2QzMDA0ZDg2OWExMWJkNDQ2NDZmNGY0YiIsImlhdCI6MTc4MDU5MzAxMCwiZXhwIjoyMDk1OTUzMDEwfQ.zEO_32QTAQv_vjvslyb6RO8BhLu8Bhw2u1ZG2BSXHt4")
+  (let* ((token  (uiop:getenv "HA_TOKEN"))
+         (ha-url (or (uiop:getenv "HA_URL") "http://10.0.69.190:8123"))
          (entity "light.testmcu_my_udp_led")
-         (ha-url "http://10.0.69.190:8123")
          (headers (list (cons "Authorization" (format nil "Bearer ~a" token))
                         (cons "Content-Type" "application/json")))
          (body (format nil "{\"entity_id\": \"~a\"}" entity))
@@ -139,6 +146,7 @@
             (#\8 . "---..")  (#\9 . "----.")
             (#\. . ".-.-.-") (#\, . "--..--") (#\? . "..--..") (#\! . "-.-.--")))
          (text (gethash "text" args)))
+    (unless token (return-from led_morse (values "ERROR: HA_TOKEN env var not set" t)))
     (handler-case
         (progn
           (flet ((flash (duration)
