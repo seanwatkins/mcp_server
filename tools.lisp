@@ -82,6 +82,7 @@
 ;; (define-tool pig_latin above calls these)
 
 
+
 ;;; --- Home Assistant LED Tools -------------------------------------------
 
 (define-tool LED_ON
@@ -89,32 +90,34 @@
   (jobj "type" "object" "properties" (jobj) "required" (list))
   (let ((ha-url (or (uiop:getenv "HA_URL") "http://10.0.69.190:8123"))
         (token  (uiop:getenv "HA_TOKEN")))
-    (unless token (return-from led_on (values "ERROR: HA_TOKEN env var not set" t)))
-    (handler-case
-        (progn
-          (dexador:post
-           (format nil "~a/api/services/light/turn_on" ha-url)
-           :headers (list (cons "Authorization" (format nil "Bearer ~a" token))
-                          (cons "Content-Type" "application/json"))
-           :content "{\"entity_id\": \"light.testmcu_my_udp_led\"}")
-          (values "LED is ON" nil))
-      (error (e) (values (format nil "ERROR: ~A" e) t)))))
+    (if (null token)
+        (values "ERROR: HA_TOKEN env var not set" t)
+        (handler-case
+            (progn
+              (dexador:post
+               (format nil "~a/api/services/light/turn_on" ha-url)
+               :headers (list (cons "Authorization" (format nil "Bearer ~a" token))
+                              (cons "Content-Type" "application/json"))
+               :content "{\"entity_id\": \"light.testmcu_my_udp_led\"}")
+              (values "LED is ON" nil))
+          (error (e) (values (format nil "ERROR: ~A" e) t))))))
 
 (define-tool LED_OFF
   "Turn off the Home Assistant LED light (light.testmcu_my_udp_led)."
   (jobj "type" "object" "properties" (jobj) "required" (list))
   (let ((ha-url (or (uiop:getenv "HA_URL") "http://10.0.69.190:8123"))
         (token  (uiop:getenv "HA_TOKEN")))
-    (unless token (return-from led_off (values "ERROR: HA_TOKEN env var not set" t)))
-    (handler-case
-        (progn
-          (dexador:post
-           (format nil "~a/api/services/light/turn_off" ha-url)
-           :headers (list (cons "Authorization" (format nil "Bearer ~a" token))
-                          (cons "Content-Type" "application/json"))
-           :content "{\"entity_id\": \"light.testmcu_my_udp_led\"}")
-          (values "LED is OFF" nil))
-      (error (e) (values (format nil "ERROR: ~A" e) t)))))
+    (if (null token)
+        (values "ERROR: HA_TOKEN env var not set" t)
+        (handler-case
+            (progn
+              (dexador:post
+               (format nil "~a/api/services/light/turn_off" ha-url)
+               :headers (list (cons "Authorization" (format nil "Bearer ~a" token))
+                              (cons "Content-Type" "application/json"))
+               :content "{\"entity_id\": \"light.testmcu_my_udp_led\"}")
+              (values "LED is OFF" nil))
+          (error (e) (values (format nil "ERROR: ~A" e) t))))))
 
 (define-tool LED_MORSE
   "Flash a message in Morse code via the Home Assistant LED. Pass a 'text' string to transmit."
@@ -125,44 +128,45 @@
   (let* ((token  (uiop:getenv "HA_TOKEN"))
          (ha-url (or (uiop:getenv "HA_URL") "http://10.0.69.190:8123"))
          (entity "light.testmcu_my_udp_led")
-         (headers (list (cons "Authorization" (format nil "Bearer ~a" token))
-                        (cons "Content-Type" "application/json")))
-         (body (format nil "{\"entity_id\": \"~a\"}" entity))
-         (dit 0.15)
-         (dah (* 3 dit))
-         (sym-gap dit)
-         (letter-gap (* 3 dit))
-         (word-gap  (* 7 dit))
-         (morse-table
-          '((#\A . ".-")    (#\B . "-...")  (#\C . "-.-.")  (#\D . "-..")
-            (#\E . ".")     (#\F . "..-.")  (#\G . "--.")   (#\H . "....")
-            (#\I . "..")    (#\J . ".---")  (#\K . "-.-")   (#\L . ".-..")
-            (#\M . "--")    (#\N . "-.")    (#\O . "---")   (#\P . ".--.")
-            (#\Q . "--.-")  (#\R . ".-.")   (#\S . "...")   (#\T . "-")
-            (#\U . "..-")   (#\V . "...-")  (#\W . ".--")   (#\X . "-..-")
-            (#\Y . "-.--")  (#\Z . "--..")
-            (#\0 . "-----") (#\1 . ".----") (#\2 . "..---") (#\3 . "...--")
-            (#\4 . "....-") (#\5 . ".....") (#\6 . "-....") (#\7 . "--...")
-            (#\8 . "---..")  (#\9 . "----.")
-            (#\. . ".-.-.-") (#\, . "--..--") (#\? . "..--..") (#\! . "-.-.--")))
-         (text (gethash "text" args)))
-    (unless token (return-from led_morse (values "ERROR: HA_TOKEN env var not set" t)))
-    (handler-case
-        (progn
-          (flet ((flash (duration)
-                   (dexador:post (format nil "~a/api/services/light/turn_on" ha-url)
-                                 :headers headers :content body)
-                   (sleep duration)
-                   (dexador:post (format nil "~a/api/services/light/turn_off" ha-url)
-                                 :headers headers :content body)
-                   (sleep sym-gap)))
-            (loop for ch across (string-upcase text) do
-              (cond
-                ((char= ch #\Space) (sleep word-gap))
-                (t (let ((code (cdr (assoc ch morse-table))))
-                     (when code
-                       (loop for sym across code do
-                         (if (char= sym #\.) (flash dit) (flash dah))))
-                     (sleep letter-gap))))))
-          (values (format nil "Morse sent: ~a" text) nil))
-      (error (e) (values (format nil "ERROR: ~a" e) t)))))
+         (text   (gethash "text" args)))
+    (if (null token)
+        (values "ERROR: HA_TOKEN env var not set" t)
+        (let* ((headers (list (cons "Authorization" (format nil "Bearer ~a" token))
+                              (cons "Content-Type" "application/json")))
+               (body (format nil "{\"entity_id\": \"~a\"}" entity))
+               (dit 0.15)
+               (dah (* 3 dit))
+               (sym-gap dit)
+               (letter-gap (* 3 dit))
+               (word-gap  (* 7 dit))
+               (morse-table
+                '((#\A . ".-")    (#\B . "-...")  (#\C . "-.-.")  (#\D . "-..")
+                  (#\E . ".")     (#\F . "..-.")  (#\G . "--.")   (#\H . "....")
+                  (#\I . "..")    (#\J . ".---")  (#\K . "-.-")   (#\L . ".-..")
+                  (#\M . "--")    (#\N . "-.")    (#\O . "---")   (#\P . ".--.")
+                  (#\Q . "--.-")  (#\R . ".-.")   (#\S . "...")   (#\T . "-")
+                  (#\U . "..-")   (#\V . "...-")  (#\W . ".--")   (#\X . "-..-")
+                  (#\Y . "-.--")  (#\Z . "--..")
+                  (#\0 . "-----") (#\1 . ".----") (#\2 . "..---") (#\3 . "...--")
+                  (#\4 . "....-") (#\5 . ".....") (#\6 . "-....") (#\7 . "--...")
+                  (#\8 . "---..")  (#\9 . "----.")
+                  (#\. . ".-.-.-") (#\, . "--..--") (#\? . "..--..") (#\! . "-.-.--"))))
+          (handler-case
+              (progn
+                (flet ((flash (duration)
+                         (dexador:post (format nil "~a/api/services/light/turn_on" ha-url)
+                                       :headers headers :content body)
+                         (sleep duration)
+                         (dexador:post (format nil "~a/api/services/light/turn_off" ha-url)
+                                       :headers headers :content body)
+                         (sleep sym-gap)))
+                  (loop for ch across (string-upcase text) do
+                    (cond
+                      ((char= ch #\Space) (sleep word-gap))
+                      (t (let ((code (cdr (assoc ch morse-table))))
+                           (when code
+                             (loop for sym across code do
+                               (if (char= sym #\.) (flash dit) (flash dah))))
+                           (sleep letter-gap))))))
+                (values (format nil "Morse sent: ~a" text) nil))
+            (error (e) (values (format nil "ERROR: ~a" e) t)))))))
