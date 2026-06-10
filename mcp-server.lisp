@@ -42,35 +42,35 @@
                 :bordeaux-threads :usocket) :silent t)
 
 ;;; --- 2. Configuration --------------------------------------------------------
-(defparameter *port*
-  (or (ignore-errors (parse-integer (uiop:getenv "MCP_PORT"))) 8765))
+;;; Runtime config — defvar so values are NOT frozen into the SBCL image.
+;;; init-config! re-reads env vars every startup before the server starts.
 
-(defparameter *allowed-root*
-  (namestring (uiop:ensure-directory-pathname
-               (or (uiop:getenv "MCP_ROOT") "/share/projects/"))))
-
-(defparameter *server-url*
-  (string-right-trim "/" (or (uiop:getenv "MCP_SERVER_URL")
-                             (format nil "http://localhost:~A" *port*))))
-
-(defparameter *mcp-endpoint*
-  (or (uiop:getenv "MCP_ENDPOINT") "/claude"))
+(defvar *port*              8765)
+(defvar *allowed-root*      "/data/projects/")
+(defvar *server-url*        "http://localhost:8765")
+(defvar *mcp-endpoint*      "/claude")
 
 ;;; --- 3. Logging & MQTT -------------------------------------------------------
-(defparameter *log-file*
-  (or (uiop:getenv "LOG_FILE") "/share/projects/mcp-server/mcp-server.log"))
+(defvar *log-file*          "/var/log/octopus/mcp-server.log")
+(defvar *mqtt-host*         "127.0.0.1")
+(defvar *mqtt-port*         1883)
+(defvar *mqtt-topic*        "mcp-server/log")
+(defvar *mqtt-status-topic* "mcp-server/status")
 
-(defparameter *mqtt-host*
-  (or (uiop:getenv "MQTT_HOST") "10.0.69.63"))
-
-(defparameter *mqtt-port*
-  (or (ignore-errors (parse-integer (uiop:getenv "MQTT_PORT"))) 1883))
-
-(defparameter *mqtt-topic*
-  (or (uiop:getenv "MQTT_TOPIC") "mcp-server/log"))
-
-(defparameter *mqtt-status-topic*
-  (or (uiop:getenv "MQTT_STATUS_TOPIC") "mcp-server/status"))
+(defun init-config! ()
+  "Re-read all configuration from environment at startup. Safe to call repeatedly."
+  (setf *port*        (or (ignore-errors (parse-integer (uiop:getenv "MCP_PORT"))) 8765))
+  (setf *allowed-root* (namestring (uiop:ensure-directory-pathname
+                          (or (uiop:getenv "MCP_ROOT") "/data/projects/"))))
+  (setf *server-url*  (string-right-trim "/"
+                          (or (uiop:getenv "MCP_SERVER_URL")
+                              (format nil "http://localhost:~A" *port*))))
+  (setf *mcp-endpoint* (or (uiop:getenv "MCP_ENDPOINT") "/claude"))
+  (setf *log-file*    (or (uiop:getenv "LOG_FILE") "/var/log/octopus/mcp-server.log"))
+  (setf *mqtt-host*   (or (uiop:getenv "MQTT_HOST") "127.0.0.1"))
+  (setf *mqtt-port*   (or (ignore-errors (parse-integer (uiop:getenv "MQTT_PORT"))) 1883))
+  (setf *mqtt-topic*  (or (uiop:getenv "MQTT_TOPIC") "mcp-server/log"))
+  (setf *mqtt-status-topic* (or (uiop:getenv "MQTT_STATUS_TOPIC") "mcp-server/status")))
 
 (defvar *mqtt-socket* nil)
 (defvar *mqtt-stream* nil)
@@ -753,6 +753,7 @@ code{background:#f3f4f6;padding:2px 6px;border-radius:3px}</style></head>
                (apply #'format nil fmt args)))
 
 (defun main ()
+  (init-config!)  ; re-read env vars before anything else
   (mqtt-connect)
   (start-status-thread)
   (log-message "MCP Filesystem Server starting")
@@ -777,4 +778,6 @@ code{background:#f3f4f6;padding:2px 6px;border-radius:3px}</style></head>
         (log-message "[INFO] Shutting down...")
         (hunchentoot:stop acceptor)))))
 
-(main)
+;; Only call main when running as executable, not when building image
+(unless (member "--save-image" sb-ext:*posix-argv* :test #'string=)
+  (main))
