@@ -110,12 +110,7 @@ it exists, falling back to the bundled `/app/tools.lisp` otherwise.
 | `write_file` | Write a file to the projects root |
 | `list_directory` | List a directory under the projects root |
 | `server_info` | Uptime, tool count, hostname |
-| `reverse_string` | Reverses a string |
-| `pig_latin` | Converts text to Pig Latin |
-| `grafana` | Make Grafana REST API calls |
-| `led_on` | Turn on a Home Assistant LED |
-| `led_off` | Turn off a Home Assistant LED |
-| `led_morse` | Flash a message in Morse code via LED |
+| `grafana` | Make Grafana REST API calls (set `GRAFANA_URL` to enable) |
 
 ## Environment variables
 
